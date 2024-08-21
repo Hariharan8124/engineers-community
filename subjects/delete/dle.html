@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>POS System</title>
+</head>
+<body>
+    <h1>Enter Product IDs</h1>
+    <form id="posForm">
+        <label for="product1">Product 1 ID:</label>
+        <input type="text" id="product1" name="product1"><br><br>
+
+        <label for="product2">Product 2 ID:</label>
+        <input type="text" id="product2" name="product2"><br><br>
+
+        <label for="product3">Product 3 ID:</label>
+        <input type="text" id="product3" name="product3"><br><br>
+
+        <button type="button" onclick="fetchProductDetails()">Get Product Details</button>
+    </form>
+
+    <h2>Product Details:</h2>
+    <div id="productDetails"></div>
+
+    <script>
+        function fetchProductDetails() {
+            const product1 = document.getElementById('product1').value;
+            const product2 = document.getElementById('product2').value;
+            const product3 = document.getElementById('product3').value;
+
+            // Assuming we're using JavaScript to fetch the data from the database
+            const productIds = [product1, product2, product3];
+
+            // Fetch details for each product (this would involve backend logic and AJAX in a real app)
+            let productDetails = '';
+
+            productIds.forEach(id => {
+                // For now, simulate fetching from the database with a switch case
+                switch(id) {
+                    case '1':
+                        productDetails += 'Product: Laptop, Price: $1200<br>';
+                        break;
+                    case '2':
+                        productDetails += 'Product: Smartphone, Price: $800<br>';
+                        break;
+                    case '3':
+                        productDetails += 'Product: Headphones, Price: $150<br>';
+                        break;
+                    default:
+                        productDetails += `Product with ID ${id} not found.<br>`;
+                }
+            });
+
+            document.getElementById('productDetails').innerHTML = productDetails;
+        }
+    </script>
+</body>
+</html>
